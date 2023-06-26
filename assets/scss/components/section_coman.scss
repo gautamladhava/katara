@@ -1,0 +1,344 @@
+.img-content-card {
+    @include rem-fallback(padding, 0, 10);
+    font-family: $font-family-secondary;
+  
+    @include bp(xs-max) {
+      @include rem-fallback(padding, 0, 5);
+    }
+  
+    h6 {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  
+      @include bp(smlg-max) {
+        @include rem-fallback(font-size, 14);
+      }
+    }
+  
+    .img-box {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      @include rem-fallback(border-radius, 4);
+      &:hover {
+        img {
+          transform: scale(1.1);
+          transition: all 0.5s;
+          overflow: hidden;
+        }
+      }
+  
+      .img-content-wrapper {
+        position: relative;
+        @include rem-fallback(font-size, 14);
+  
+        img {
+          transition: all 0.5s;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+         
+        }
+  
+        .img-content {
+          position: absolute;
+          z-index: 2;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: $light_blck;
+          color: $white;
+          @include rem-fallback(padding, 5, 5, 5, 20);
+          display: flex;
+          align-items: center;
+          line-height: 1.42;
+          @include rem-fallback(border-radius, 0,0,4,4);
+          font-weight: 400;
+  
+          @include bp(xs-max) {
+            @include rem-fallback(padding, 5);
+          }
+  
+          span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+  
+          i {
+            @include rem-fallback(margin-right, 10);
+          }
+        }
+      }
+    }
+  
+    .content-box {
+      @include rem-fallback(padding, 15);
+      background-color: $white;
+  
+      @include bp(xs-max) {
+        @include rem-fallback(padding, 5);
+      }
+  
+      span {
+        display: flex;
+        align-items: center;
+        @include rem-fallback(font-size, 14);
+        line-height: 1.5;
+        font-weight: 400;
+  
+        @include bp(xs-max) {
+          @include rem-fallback(font-size, 13);
+        }
+  
+        i {
+          @include rem-fallback(margin-right, 8);
+        }
+      }
+  
+      .explore {
+        @include rem-fallback(margin-top, 20);
+        font-family: $font-family;
+  
+        a {
+          background-color: $red;
+          color: $white;
+          position: relative;
+          border: 0;
+          text-decoration: none;
+          @include rem-fallback(font-size, 25);
+          @include rem-fallback(padding, 5, 20);
+          @include rem-fallback(border-radius, 4);
+  
+          @include bp(smlg-max) {
+            @include rem-fallback(padding, 5, 10);
+          }
+  
+          .text {
+            z-index: 5;
+            position: relative;
+            font-family: $font-family;
+            @include rem-fallback(margin-bottom, 0);
+            @include rem-fallback(font-size, 18);
+  
+            @include bp(smlg-max) {
+              @include rem-fallback(font-size, 15);
+            }
+          }
+  
+          &::after {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            border: 0;
+            background-color: $yellow;
+            transition: all 0.7s;
+            @include rem-fallback(border-radius, 4);
+          }
+  
+          &:hover:after {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            transition: all 0.7s;
+            border: 0;
+            background-color: $yellow;
+          }
+        }
+      }
+    }
+  }
+  
+  .img-content-card.video-block {
+    @include rem-fallback(padding, 0);
+    position: relative;
+  
+    .img-box {
+      width: 100%;
+      @include rem-fallback(border-radius, 4);
+      @include rem-fallback(max-width,400);  
+      &:first-child {
+        @include rem-fallback(margin-bottom, 10);
+      }
+  
+      &::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        background-color: $light_blck;
+        z-index: 0;
+      }
+  
+      .img-content-wrapper {
+        width: 100%;
+  
+        img {
+          @include rem-fallback(max-height, 200);
+          @include rem-fallback(border-radius, 5);
+          min-width: 100%;
+          object-fit: cover;
+          @include rem-fallback(height, 185);
+        }
+  
+        .img-content {
+          background-color: transparent;
+  
+          span {
+            @include rem-fallback(font-size, 16);
+            font-weight: 600;
+  
+            @include bp(smlg-max) {
+              @include rem-fallback(font-size, 14);
+            }
+          }
+        }
+      }
+  
+      .button-wrapper {
+        position: absolute;
+        @include rem-fallback(top, 10);
+        @include rem-fallback(right, 10);
+        z-index: 2;
+  
+        .like-btn {
+          @include rem-fallback(padding, 3);
+          background-color: $light_blck;
+          @include rem-fallback(margin-bottom, 10);
+  
+          .checkbox {
+            position: relative;
+  
+            input {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              opacity: 0;
+              outline: none;
+              border: none;
+              z-index: 7;
+              cursor: pointer;
+            }
+  
+            input:checked~.custom-checkbox {
+              background-image: url(../../public/images/heart.png);
+            }
+  
+            .custom-checkbox {
+              @include rem-fallback(height, 30);
+              @include rem-fallback(height, 30);
+              background-image: url(../../public/images/like.png);
+              background-size: contain;
+              background-position: center;
+              background-repeat: no-repeat;
+              display: block;
+  
+              @include bp(smlg-max) {
+                @include rem-fallback(height, 25);
+              }
+            }
+          }
+        }
+  
+        .location-btn-wrapper {
+          background-color: $light_blck;
+          display: inline-block;
+          @include rem-fallback(padding, 3);
+          @include rem-fallback(padding, 3);
+  
+          .location-btn {
+            width: 100%;
+            height: 100%;
+  
+            img {
+              @include rem-fallback(height, 30);
+  
+              object-fit: cover;
+  
+              @include bp(smlg-max) {
+                @include rem-fallback(height, 25);
+              }
+            }
+          }
+        }
+      }
+  
+      .play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+  
+        img {
+          @include rem-fallback(height, 30);
+          @include rem-fallback(width, 30);
+          object-fit: cover;
+  
+          @include bp(smlg-max) {
+            @include rem-fallback(height, 25);
+            @include rem-fallback(width, 25);
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+  
+  
+  .img-content-card.small_img {
+    .two_part {
+      display: flex;
+      @include rem-fallback(margin, 0, -5);
+  
+      .img-box {
+        flex: 0 0 50%;
+        max-width: 50%;
+        @include rem-fallback(padding, 0, 5);
+        @include rem-fallback(border-radius, 4);
+        .img-content {
+          @include rem-fallback(font-size, 13);
+          @include rem-fallback(padding, 3, 3, 3, 5);
+        }
+      }
+    }
+  
+    .content-box {
+      @include rem-fallback(padding, 0);
+      color: $black;
+    }
+  }
+  .up-arrow {
+    position: fixed;
+    @include rem-fallback(bottom,20);
+    @include rem-fallback(right,20);
+    z-index: 2;
+    cursor: pointer;
+    img {
+      @include rem-fallback(height,40);
+      @include rem-fallback(width,40);
+    }
+  }
+  
+  .main-wrapper {
+    @include rem-fallback(padding-top,95);
+  }
+  .wrapper {
+    @include rem-fallback(padding-bottom,323);
+    min-height: 100vh;
+  }
+  
+  

@@ -1,0 +1,103 @@
+* {
+    &::after {
+        box-sizing: border-box;
+    }
+
+    &::before {
+        box-sizing: border-box;
+    }
+}
+
+
+.container {
+    @include rem-fallback(max-width, 1440);
+}
+
+a,
+i,
+span {
+    display: inline-block;
+}
+
+img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+ol,
+ul {
+    @include rem-fallback(margin, 0);
+    @include rem-fallback(padding, 0);
+}
+
+body {
+    font-family: $font-family;
+  
+}
+
+h1 {
+    @include rem-fallback(font-size, 42);
+    color: $white;
+    @include rem-fallback(margin-bottom, 21);
+    line-height: 1.4;
+    @include bp(tablet-max){
+        @include rem-fallback(font-size, 35); 
+        @include rem-fallback(margin-bottom, 17);
+    }
+    @include bp(xs-max){
+        @include rem-fallback(font-size,25);
+    }
+}
+
+h3 {
+    @include rem-fallback(font-size, 28);
+    @include rem-fallback(margin-bottom, 25);
+    color: $white;
+    line-height: 1;
+    font-family: $font-family;
+    @include bp(xlg-max){
+        @include rem-fallback(font-size, 23);
+        @include rem-fallback(margin-bottom, 20);
+    }
+    @include bp(xs-max){
+        @include rem-fallback(font-size,17);
+        @include rem-fallback(margin-bottom, 10);
+    }
+}
+
+h5 {
+    @include rem-fallback(font-size, 17);
+    @include rem-fallback(margin-bottom, 20);
+    color: $yellow;
+    font-family: $font-family;
+    line-height: 1.5;
+   
+    @include bp(xs-max){
+        @include rem-fallback(font-size,14);
+        @include rem-fallback(margin-bottom, 10);
+    }
+  
+}
+
+h6 {
+    @include rem-fallback(font-size, 16);
+    @include rem-fallback(margin-bottom, 5);
+    line-height: 1.5;
+    font-weight: 600;
+    @include bp(xs-max){
+        @include rem-fallback(font-size,15);
+        @include rem-fallback(margin-bottom, 3);
+    }
+
+
+}
+
+.red {
+    color: $red
+}
+
+.yellow {
+    color: $yellow;
+}

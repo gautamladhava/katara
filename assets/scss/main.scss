@@ -1,0 +1,26 @@
+// Core Bootstrap Files
+@import "base/fonts";
+@import "base/general";
+
+// Vendor
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "vendor/vendor";
+@import "vendor/dropkick.css";
+@import "vendor/slick.css";
+@import "vendor/slick-theme.css";
+
+
+// Base
+@import "base/colors";
+@import "base/break-points";
+@import "base/mixins";
+@import "base/coman";
+
+
+// Modules
+
+// Component
+
+@import "components/home";
+@import "components/header";
+@import "components/section_coman";

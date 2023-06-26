@@ -1,0 +1,307 @@
+.header {
+    background-color: $red;
+    @include rem-fallback(padding, 10, 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+
+    .header-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .open-menu {
+            display: none;
+
+            @include bp(smlg-max) {
+                display: block;
+            }
+
+            .open-btn {
+
+                background-color: transparent;
+                border: none;
+
+                .bar1 {
+                   
+                    @include rem-fallback(height,2);
+                    @include rem-fallback(width,20);
+                    background-color: $white;
+                  
+                    @include rem-fallback(margin-bottom,3);
+                }
+
+                .bar2 {
+                    @include rem-fallback(height,2);
+                    @include rem-fallback(width,20);
+                    background-color: $white;
+                    @include rem-fallback(margin-bottom,3);
+                }
+
+                .bar3 {
+                    @include rem-fallback(height,2);
+                    @include rem-fallback(width,20);
+                    background-color: $white;
+                    @include rem-fallback(margin-bottom,3);
+                }
+            }
+        }
+
+        .left-side-block {
+            display: flex;
+            align-items: center;
+
+            @include bp(tablet-max) {
+                display: block;
+            }
+
+            .logo {
+                @include rem-fallback(margin-right, 46);
+
+                @include bp(tablet-max) {
+                    @include rem-fallback(margin-right, 0);
+                    @include rem-fallback(margin-bottom, 20);
+                }
+
+                @include bp(smlg-max) {
+                    @include rem-fallback(margin-bottom, 0);
+                }
+
+                img {
+                    @include bp(smlg-max) {
+                     
+                        @include rem-fallback(height,50);
+                        @include rem-fallback(width,100);
+                        object-fit: fill;
+                    }
+                }
+            }
+
+            .nav-menu {
+                @include bp(smlg-max) {
+                    position: fixed;
+                    top: 0;
+                    bottom: 0;                    
+                    @include rem-fallback(right,-300);
+                    @include rem-fallback(width,300);
+                    background-color: $red;
+                    
+                    z-index: 30;
+                    transition: all 0.7s;
+                }
+
+                .close-btn {
+
+
+                    .bar1 {
+                        @include rem-fallback(height,2);
+                        @include rem-fallback(width,20);
+                        background-color: $white;
+                        margin-bottom: 0;
+
+                        transform: translateY(2px)rotate(-45deg);
+                    }
+
+                    .bar2 {
+                        @include rem-fallback(height,2);
+                        @include rem-fallback(width,20);
+                        background-color: $white;
+                        margin-bottom: 0;
+                        opacity: 0;
+                    }
+
+                    .bar3 {
+                        @include rem-fallback(height,2);
+                        @include rem-fallback(width,20);
+                        background-color: $white;
+                        margin-bottom: 0;
+
+                        transform: translateY(-2px) rotate(45deg);
+                    }
+
+                    position: absolute;
+                    display: none;
+                    background-color: transparent;
+                    border: none;
+
+                    @include bp(smlg-max) {
+                        display: block;
+                    }
+
+                    @include rem-fallback(top, 20);
+                    @include rem-fallback(right, 20);
+
+                    img {
+                        @include rem-fallback(height, 30);
+                        @include rem-fallback(width, 30);
+                    }
+                }
+
+                ul {
+                    display: flex;
+                    align-items: center;
+                    list-style-type: none;
+                    @include rem-fallback(margin, 0, -9);
+
+                    @include bp(smlg-max) {
+                        display: block;
+                        text-align: start;
+                        position: absolute;
+                        @include rem-fallback(top,60);
+                        @include rem-fallback(left,20);
+
+                    }
+
+                    li {
+                        .right-side-block {
+                            &.mobile-show {
+                                display: none;
+
+                                @include bp(smlg-max) {
+                                    display: block;
+                                }
+                            }
+
+                            .icon-box {
+                                ul {
+                                    position: relative;
+                                    display: flex;
+                                    transform: translate(0);
+                                    top: 0;
+                                    left: 0;
+                                    @include rem-fallback(margin,0,0);
+
+                                    li {
+                                        a {
+                                            padding: 0;
+                                            a{
+                                                &::after{
+                                                    display: none;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        a {
+                            color: $white;
+                            text-decoration: none;
+                            @include rem-fallback(font-size, 17);
+                            @include rem-fallback(padding, 5, 12);
+                            transition: all 0.7s;
+                            position: relative;
+
+                            @include bp(tablet-max) {
+                                @include rem-fallback(font-size, 16);
+                                @include rem-fallback(padding, 5, 9);
+                            }
+
+                            &::after {
+                                position: absolute;
+                                bottom: 0;
+                                content: "";
+                                background-color: $yellow;
+                                width: 0;
+
+                                @include rem-fallback(height, 2);
+                                left: 0;
+                                transition: all 0.7s;
+                            }
+
+                            &:hover::after {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .right-side-block {
+
+            &.mobile-hide {
+                @include bp(smlg-max) {
+                    display: none
+                }
+            }
+
+            .icon-box {
+                @include rem-fallback(margin-bottom, 9);
+                text-align: end;
+                display: flex;
+                justify-content: end;
+
+                ul {
+                    display: flex;
+                    list-style-type: none;
+
+                    li {
+                        color: $white;
+                        @include rem-fallback(padding, 5);
+                        transition: all 0.7s;
+                        opacity: 1;
+                        a{
+                            &::after{
+                                display: none;
+                            }
+                        }
+
+                        &:hover {
+                            opacity: 0.7;
+                        }
+                    }
+                }
+
+                i {
+                    @include rem-fallback(padding, 0, 3);
+                }
+            }
+
+            .search-input {
+                position: relative;
+
+                input {
+                    background-color: transparent;
+                    color: $white;
+                    border: none;
+                    border-bottom: 1px solid $white;
+                    @include rem-fallback(padding, 3, 25, 3, 3);
+
+                    &::placeholder {
+                        color: $white;
+                        @include rem-fallback(font-size, 15);
+                    }
+
+                    &:focus-visible {
+                        outline: none;
+                    }
+                }
+
+                .search-icon {
+                    position: absolute;
+                    right: 0;
+                    cursor: pointer;
+                }
+            }
+
+        }
+    }
+}
+
+.open-menu {
+    .header {
+        .header-wrapper {
+            .left-side-block {
+                .nav-menu {
+                    @include bp(smlg-max) {
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
